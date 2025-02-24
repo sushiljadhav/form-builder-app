@@ -1,0 +1,15 @@
+.form-group {
+	margin-bottom: 10px;
+}
+
+.form-group label {
+	margin-bottom: 10px;
+	display: block;
+	font-size: 17px;
+}
+
+.helper-text {
+	font-size: 11px;
+	margin-top: 5px;
+	display: block;
+}
