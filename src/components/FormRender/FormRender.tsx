@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IBaseQuestion, QuestionTypes } from "../../models/IFormFields";
 import "./formrender.css";
 
 const FormRender = () => {
 	const [questions, setQuestions] = useState<IBaseQuestion[]>([]);
-	const [formData, setFormData] = useState<{ [key: string]: any }>({});
+	const [formData, setFormData] = useState<{
+		[key: string]: string | number | readonly string[] | undefined;
+	}>({});
 
 	useEffect(() => {
 		const savedQuestions = localStorage.getItem("formQuestions");
@@ -15,7 +17,10 @@ const FormRender = () => {
 		console.log("formData", formData);
 	}, [formData]);
 
-	const handleChange = (id: string, value: any) => {
+	const handleChange = (
+		id: string,
+		value: string | number | readonly string[] | undefined
+	) => {
 		setFormData((prev) => ({
 			...prev,
 			[id]: value,
